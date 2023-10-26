@@ -19,13 +19,46 @@ h2,.white{
     color: #fff;
 }
 
+h3,.white{
+    color: #fff;
+}
+
 a{
-    color: #7A7C80;
+    color: #fff6ce;
     text-decoration: none;
 }
+            
+.container {
+    display: flex; 
+    flex-direction: column;
+    flex-basis: 25em;
+    align-items: center;
+    gap: 10px;
+}
+            
+.item {
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    height: 200px;
+}
+
+.item-text {
+    width: 70%;
+    margin: 5px;
+    vertical-align: middle;
+}
+
+.item-img {
+    width: 30%;
+    margin: 5px;
+    vertical-align: middle;
+}
+
 /* section 1 */
 .section-1{
-    padding-top: 40vh;
+    padding-top: 25vh;
     text-align: center;
 }
 
@@ -60,17 +93,8 @@ a{
     padding-bottom: 10px;
     margin:0;
 }
-
-.section-2 a{
-    display: block;
-    padding: 5px;
-    font-size: 1.2rem;
-    padding-left: 0;
-    width: 100px;
-}
 /* animations / utilities */
 .section-2 a:hover{
-    font-size: 1.3rem;
     color: #fff;
     cursor: pointer;
     transition: 0.2s;
@@ -79,7 +103,7 @@ a{
 .section-1 a:hover{
     color: #fff;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.2s;
 }
 
 .white:hover{
