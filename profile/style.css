@@ -11,8 +11,9 @@ body {
     line-height: 130%;
 }
 
-b, em, w {
+b, em {
     color: #b8b8b8;
+    font-style: normal;
 }
 
 hr {
