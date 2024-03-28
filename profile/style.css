@@ -33,7 +33,7 @@ a {
 
 /* Grid Styles */
 .grid-2 {
-    max-width: 1440px;
+    max-width: 1400px;
     margin: auto;
     display: grid;
     grid-template-columns: 1fr 3fr;
@@ -126,7 +126,7 @@ a:hover {
 }
 
 /* Media Queries */
-@media (max-width: 1500px) {
+@media (max-width: 1440px) {
     .grid-2 {
         max-width: 960px;
         grid-template-columns: 1fr;
