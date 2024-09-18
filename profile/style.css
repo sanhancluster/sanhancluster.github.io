@@ -8,9 +8,21 @@ body {
     background-color: #0d0e0f;
     color: #8c8e94;
     font-size: 1.1rem;
-    line-height: 130%;
+    line-height: 150%;
 }
-
+sup, sub {
+    vertical-align: top;
+    position: relative;
+    top: -0.3em;
+  }
+  
+  sub {
+    vertical-align: bottom;
+    top: 0.3em;
+  }
+/*sup { vertical-align: top; font-size: 0.6em; top: -0.5em; }
+sub { vertical-align: bottom; font-size: 0.6em; bottom: +0.5em; }
+*/
 b, em {
     color: #b1b5b6;
     font-style: normal;
