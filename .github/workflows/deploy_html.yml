@@ -31,6 +31,12 @@ jobs:
       run: |
         python generate_html.py
 
+    - name: Generate PDF
+      uses: xu-cheng/latex-action@v3
+      with:
+          root_file: cv/cv.tex
+          texlive_version: 2023
+
     # Step 5: Deploy to GitHub Pages
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
