@@ -31,6 +31,12 @@ jobs:
       run: |
         python generate_html.py
 
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        submodules: recursive
+        token: ${{ secrets.OVERLEAF_TOKEN }}
+
     - name: Generate PDF
       uses: xu-cheng/latex-action@v3
       with:
