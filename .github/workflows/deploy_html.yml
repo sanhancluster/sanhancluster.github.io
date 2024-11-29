@@ -14,6 +14,9 @@ jobs:
     # Step 1: Check out the repository
     - name: Check out repository
       uses: actions/checkout@v3
+      with:
+        submodules: recursive
+        token: ${{ secrets.OVERLEAF_TOKEN }}
 
     # Step 2: Set up Python
     - name: Set up Python
@@ -30,12 +33,6 @@ jobs:
     - name: Generate HTML
       run: |
         python generate_html.py
-
-    - name: Checkout repository
-      uses: actions/checkout@v2
-      with:
-        submodules: recursive
-        token: ${{ secrets.OVERLEAF_TOKEN }}
 
     - name: Generate PDF
       uses: xu-cheng/latex-action@v3
