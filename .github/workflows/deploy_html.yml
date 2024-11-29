@@ -18,19 +18,6 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
 
-    # Step 1: Set up Git credentials for Overleaf
-    - name: Configure Git for Overleaf
-      env:
-        OVERLEAF_USERNAME: git  # Overleaf username/email
-        OVERLEAF_PASSWORD: ${{ secrets.OVERLEAF_TOKEN }}  # Overleaf password
-      run: |
-        git config --global credential.helper store
-        echo "https://${OVERLEAF_USERNAME}:${OVERLEAF_PASSWORD}@git.overleaf.com" > ~/.git-credentials
-
-    - name: Clone Overleaf Repository
-      run: |
-        git clone https://git.overleaf.com/652e2007b1424ca05dac54c4 cv
-
     # Step 2: Set up Python
     - name: Set up Python
       uses: actions/setup-python@v4
