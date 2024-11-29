@@ -1,0 +1,177 @@
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto';
+    background-color: #0d0e0f;
+    color: #8c8e94;
+    font-size: 1.1rem;
+    line-height: 150%;
+}
+sup, sub {
+    vertical-align: top;
+    position: relative;
+    top: -0.3em;
+  }
+  
+  sub {
+    vertical-align: bottom;
+    top: 0.3em;
+  }
+/*sup { vertical-align: top; font-size: 0.6em; top: -0.5em; }
+sub { vertical-align: bottom; font-size: 0.6em; bottom: +0.5em; }
+*/
+b, em {
+    color: #b4c1c5;
+    font-style: normal;
+}
+
+hr {
+    height: 1px;
+    background-color: #7A7C80;
+    border-width: 0;
+}
+
+h2, h3, .white {
+    color: #fff;
+}
+
+a {
+    color: #eed771;
+    text-decoration: none;
+}
+
+/* Grid Styles */
+.grid-2 {
+    max-width: 1400px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 25em;
+    align-items: center;
+    gap: 10px;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.item-text {
+    width: 70%;
+    margin: 5px;
+    vertical-align: middle;
+}
+
+.item-img {
+    width: 30%;
+    margin: 5px;
+    vertical-align: middle;
+}
+
+/* Section 1 Styles */
+.section-1 {
+    padding-top: 25vh;
+    text-align: center;
+    max-width: 360px;
+    padding-left: 2.5rem;
+    justify-self: right;
+}
+
+.section-1 h2 {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+}
+
+.section-2 p {
+    padding-bottom: 10px;
+    margin: 0;
+}
+
+.section-icon {
+    word-spacing: 1em;
+}
+
+.section-1 ol {
+    display: block;
+    list-style-type: none;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    line-height: 175%;
+    padding-left: 0px;
+}
+
+
+/* Section 2 Styles */
+.section-2 {
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    justify-self: left;
+}
+
+.section-2 h2 {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+}
+
+.section-2 p {
+    padding-bottom: 10px;
+    margin: 0;
+}
+
+/* Animation/Utility Styles */
+a:hover {
+    color: #fff;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* Media Queries */
+@media (max-width: 1440px) {
+    .grid-2 {
+        max-width: 960px;
+        grid-template-columns: 1fr;
+    }
+
+    .section-1, .section-2 {
+        padding: 0;
+        justify-self: center;
+    }
+
+    .section-1 {
+        padding-top: 5rem;
+    }
+
+    .section-2 {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-top: 1rem;
+    }
+
+    .item {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 0;
+    }
+
+    .item-text {
+        width: 100%;
+    }
+
+    .item-img {
+        width: 100%;
+        max-width: 300px;
+    }
+}
