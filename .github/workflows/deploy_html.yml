@@ -15,10 +15,13 @@ jobs:
     - name: Check out repository
       uses: actions/checkout@v3
       with:
-        submodules: recursive
         token: ${{ secrets.GITHUB_TOKEN }}
-        password: ${{ secrets.OVERLEAF_TOKEN }}
 
+    - name: Check out overleaf repository
+      uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.OVERLEAF_TOKEN }}
+  
     # Step 2: Set up Python
     - name: Set up Python
       uses: actions/setup-python@v4
