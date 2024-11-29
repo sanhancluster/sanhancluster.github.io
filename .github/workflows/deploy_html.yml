@@ -29,7 +29,7 @@ jobs:
 
     - name: Clone Overleaf Repository
       run: |
-        git clone https://git.overleaf.com/652e2007b1424ca05dac54c4 overleaf-repo
+        git clone https://git.overleaf.com/652e2007b1424ca05dac54c4 cv
 
     # Step 2: Set up Python
     - name: Set up Python
