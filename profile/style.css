@@ -137,6 +137,39 @@ a:hover {
     transition: 0.2s;
 }
 
+:target {
+	-webkit-animation: target-fade 1s;
+	-moz-animation: target-fade 1s;
+	-o-animation: target-fade 1s;
+	animation: target-fade 1s;
+}
+
+/**
+ * Keyframe animation definition
+ * 
+ * 1. Insert a color of your choice here
+ */
+
+@-webkit-keyframes target-fade {
+	from { background-color: rgb(44, 49, 50); } /* [1] */
+	to { background-color: transparent; }
+}
+
+@-moz-keyframes target-fade {
+	from { background-color: rgb(44, 49, 50); } /* [1] */
+	to { background-color: transparent; }
+}
+
+@-o-keyframes target-fade {
+	from { background-color: rgb(44, 49, 50); } /* [1] */
+	to { background-color: transparent; }
+}
+
+@keyframes target-fade {
+	from { background-color: rgb(44, 49, 50); } /* [1] */
+	to { background-color: transparent; }
+}
+
 /* Media Queries */
 @media (max-width: 1440px) {
     .grid-2 {
