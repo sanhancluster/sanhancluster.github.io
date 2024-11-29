@@ -17,6 +17,7 @@ jobs:
       with:
         submodules: recursive
         token: ${{ secrets.GITHUB_TOKEN }}
+        password: ${{ secrets.OVERLEAF_TOKEN }}
 
     # Step 2: Set up Python
     - name: Set up Python
