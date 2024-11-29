@@ -1,0 +1,39 @@
+name: Generate and Deploy HTML
+
+on:
+  push:
+    branches:
+      - main  # Run this workflow on pushes to the 'main' branch
+  workflow_dispatch:  # Allow manual triggering from GitHub UI
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Check out the repository
+    - name: Check out repository
+      uses: actions/checkout@v3
+
+    # Step 2: Set up Python
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.9
+
+    # Step 3: Install dependencies
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    # Step 4: Run Python script to generate HTML
+    - name: Generate HTML
+      run: |
+        python generate_html.py
+
+    # Step 5: Deploy to GitHub Pages
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: .  # Deploy the repository root (with the generated HTML)
