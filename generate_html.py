@@ -2,7 +2,8 @@ import ads
 
 author_limit = 30
 paper_limit = 100
-query = "docs(library/8GkonQ6JQfWG3Vhc-mDIkg)"
+#query = "docs(library/8GkonQ6JQfWG3Vhc-mDIkg)"
+query = "orcid:0000-0001-9939-713X"
 my_name = 'Han, San'
 
 # Set your ADS API key
