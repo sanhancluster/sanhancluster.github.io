@@ -28,6 +28,10 @@ b, em {
     font-style: normal;
 }
 
+small {
+    font-size: 0.75em;
+}
+
 hr {
     height: 1px;
     background-color: #7A7C80;
