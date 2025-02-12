@@ -41,7 +41,8 @@ def write_html(query, output_file="papers.html"):
     
     # Generate HTML content
     html_content = HTML_TEMPLATE
-    num_papers = len(papers)
+    #num_papers = len(papers)
+    papers_html = ""
     for paper in papers:
         papers_html += f"""
         <p>
