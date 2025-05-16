@@ -7,7 +7,7 @@ query = "orcid:0000-0001-9939-713X"
 my_name = 'Han, San'
 
 # Set your ADS API key
-ads.config.token = "v44izPSVymEcqsO9PgueFEfWHuIZ5ewBBwPqGKWL"
+ads.config.token = "la3I0TAYMC6FA7kPScFIqMloB8Y9ktidI6haOMZQ"
 
 with open("profile/template.html", "r", encoding="utf-8") as f:
     HTML_TEMPLATE = f.read()
