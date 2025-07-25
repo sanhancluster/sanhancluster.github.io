@@ -4,22 +4,23 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto';
+    font-family: "Roboto";
     background-color: #0d0e0f;
     color: #8c8e94;
     font-size: 1.1rem;
     line-height: 150%;
 }
+
 sup, sub {
     vertical-align: top;
     position: relative;
     top: -0.3em;
-  }
-  
-  sub {
+}
+
+sub {
     vertical-align: bottom;
     top: 0.3em;
-  }
+}
 /*sup { vertical-align: top; font-size: 0.6em; top: -0.5em; }
 sub { vertical-align: bottom; font-size: 0.6em; bottom: +0.5em; }
 */
@@ -34,7 +35,7 @@ small {
 
 hr {
     height: 1px;
-    background-color: #7A7C80;
+    background-color: #505153;
     border-width: 0;
 }
 
@@ -142,36 +143,36 @@ a:hover {
 }
 
 :target {
-	-webkit-animation: target-fade 1s;
-	-moz-animation: target-fade 1s;
-	-o-animation: target-fade 1s;
-	animation: target-fade 1s;
+    -webkit-animation: target-fade 1s;
+    -moz-animation: target-fade 1s;
+    -o-animation: target-fade 1s;
+    animation: target-fade 1s;
 }
 
 /**
- * Keyframe animation definition
- * 
- * 1. Insert a color of your choice here
- */
+* Keyframe animation definition
+* 
+* 1. Insert a color of your choice here
+*/
 
 @-webkit-keyframes target-fade {
-	from { background-color: rgb(44, 49, 50); } /* [1] */
-	to { background-color: transparent; }
+    from { background-color: rgb(44, 49, 50); } /* [1] */
+    to { background-color: transparent; }
 }
 
 @-moz-keyframes target-fade {
-	from { background-color: rgb(44, 49, 50); } /* [1] */
-	to { background-color: transparent; }
+    from { background-color: rgb(44, 49, 50); } /* [1] */
+    to { background-color: transparent; }
 }
 
 @-o-keyframes target-fade {
-	from { background-color: rgb(44, 49, 50); } /* [1] */
-	to { background-color: transparent; }
+    from { background-color: rgb(44, 49, 50); } /* [1] */
+    to { background-color: transparent; }
 }
 
 @keyframes target-fade {
-	from { background-color: rgb(44, 49, 50); } /* [1] */
-	to { background-color: transparent; }
+    from { background-color: rgb(44, 49, 50); } /* [1] */
+    to { background-color: transparent; }
 }
 
 /* Media Queries */
@@ -180,33 +181,33 @@ a:hover {
         max-width: 960px;
         grid-template-columns: 1fr;
     }
-
+    
     .section-1, .section-2 {
         padding: 0;
         justify-self: center;
     }
-
+    
     .section-1 {
         padding-top: 5rem;
     }
-
+    
     .section-2 {
         padding-left: 1.5rem;
         padding-right: 1.5rem;
         padding-top: 1rem;
     }
-
+    
     .item {
         display: flex;
         flex-direction: column-reverse;
         align-items: center;
         gap: 0;
     }
-
+    
     .item-text {
         width: 100%;
     }
-
+    
     .item-img {
         width: 100%;
         max-width: 300px;
