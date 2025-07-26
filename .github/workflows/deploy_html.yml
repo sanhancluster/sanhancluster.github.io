@@ -32,7 +32,8 @@ jobs:
     # Step 4: Run Python script to generate HTML
     - name: Generate HTML
       run: |
-        python generate_html.py
+        python generate_index.py
+        python generate_gallery.py
 
     # Step 5: Deploy to GitHub Pages
     - name: Deploy to GitHub Pages
