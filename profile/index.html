@@ -29,13 +29,15 @@
                     <a href="https://bitbucket.org/sanhancluster"><i class="fab fa-bitbucket"></i></a>
                 </h3>
             </div>
-            <ol class="toc">
-                <li> <a href="#about" target="_self">About</a>
-                <li> <a href="#research" target="_self">Research</a>
-                <li> <a href="#publications" target="_self">Publications</a>
-                <li> <a href="#others" target="_self">Others</a>
-                <li> <a href="#contact" target="_self">Contact</a>
-            </ol>
+            <nav>
+                <ul class="toc">
+                    <li> <a href="#about" target="_self">About</a>
+                    <li> <a href="#research" target="_self">Research</a>
+                    <li> <a href="#publications" target="_self">Publications</a>
+                    <li> <a href="#others" target="_self">Others</a>
+                    <li> <a href="#contact" target="_self">Contact</a>
+                </ul>
+            </nav>
         </div>
         <div class="section-2">
             <div id="about">
@@ -210,7 +212,6 @@
             Rhee, J.; Smith, R.; Choi, H.; Contini, E.; Jung, S.; <b>Han, S.</b>; Yi, S., <em>2020</em>, <em>ApJS</em>, 247, 45 <a href='https://ui.adsabs.harvard.edu/abs/2020ApJS..247...45R'><small>[ADS]</small></a> <a href='https://doi.org/10.3847/1538-4365/ab7377'><small>[DOI]</small></a> <a href='https://arxiv.org/abs/2002.04645'><small>[arXiv]</small></a> <a href='https://ar5iv.labs.arxiv.org/html/2002.04645'><small>[HTML]</small></a> 
         </p>
         
-                
             </div>
             <hr>
             <div id="others">
@@ -239,7 +240,12 @@
                     <b><a href="https://github.com/sanhancluster/rur">Ramses Universal Reader</a></b>
                     A Python package for reading and drawing RAMSES data
                 </li>
+                <h3>Gallery</h3>
+                <li>
+                    <a href="gallery.html"> Check out some cool media I made with simulations</a>
+                </li>
             </div>
+            <hr>
             <div id="contact">
                 <h2>Contact</h2>
                 <p>san.han (at) iap.fr</p>
@@ -248,5 +254,10 @@
         </div>
     </div>
 </body>
-
+<footer>
+    <p>Last updated: <span id="last-updated"></span></p>
+    <script>
+        document.getElementById("last-updated").textContent = document.lastModified;
+    </script>
+</footer>
 </html>
