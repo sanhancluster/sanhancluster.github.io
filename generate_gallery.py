@@ -4,7 +4,7 @@ from PIL import Image
 # 설정
 source_dir = "./profile/gallery"
 thumb_dir = "./profile/thumbnails"
-thumb_size = 400
+thumb_size = 600
 output_file = "./profile/gallery.html"
 
 os.makedirs(thumb_dir, exist_ok=True)
@@ -60,7 +60,7 @@ for filename in os.listdir(source_dir):
         name, ext = os.path.splitext(filename)
         source_path = os.path.relpath(source_path, start=os.path.dirname(output_file))
         videos_html += f"""
-        <video controls height="400">
+        <video controls height="300">
             <source src="{source_path}" type="video/{ext[1:]}">
             Your browser does not support the video tag.
         </video>
