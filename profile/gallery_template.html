@@ -11,6 +11,8 @@
     <base target="_blank">
     <title>San Han</title>
     <script src="https://www.w3schools.com/lib/w3data.js"></script>
+    
+    <script src="https://openseadragon.github.io/openseadragon/openseadragon.min.js"></script>
 </head>
 <body style="margin-left: 1em">
     <header>
@@ -21,12 +23,63 @@
             <div class="gallery">
                 {list_images}
             </div>
-            <hr>
         </div>
-        <div id="videos">
+        <hr>
+
+        <div id="large_images">
             <div class="gallery">
-                {list_videos}
+                <h2>Zoomable Images</h2>
+                <div class="thumb-list">
+                    {list_large_images}
+                </div>
+                
+                <div id="osd-overlay">
+                    <div id="close-btn" onclick="closeViewer()">✕</div>
+                    <div id="openseadragon-viewer"></div>
+                </div>
+                
+                <script>
+                    let viewer = null;
+                    
+                    // 썸네일 클릭 → 뷰어 열기
+                    document.querySelectorAll('.thumb-list img').forEach(img => {
+                        img.addEventListener('click', () => {
+                            const dziPath = img.getAttribute('data-dzi');
+                            openViewer(dziPath);
+                        });
+                    });
+                    
+                    function openViewer(dziPath) {
+                        document.getElementById('osd-overlay').style.display = 'block';
+                        if (viewer) {
+                            viewer.open(dziPath); // 이미지 전환
+                        } else {
+                            viewer = OpenSeadragon({
+                                id: "openseadragon-viewer",
+                                prefixUrl: "https://openseadragon.github.io/openseadragon/images/",
+                                tileSources: dziPath,
+                                showNavigationControl: true
+                            });
+                        }
+                    }
+                    
+                    function closeViewer() {
+                        if (viewer) viewer.close();
+                        document.getElementById('osd-overlay').style.display = 'none';
+                    }
+                    
+                    // ESC 키로 닫기
+                    document.addEventListener('keydown', e => {
+                        if (e.key === 'Escape') closeViewer();
+                    });
+                </script>
             </div>
-        </div>
-    </main>
-</body> 
+            <hr>
+
+            <div id="videos">
+                <div class="gallery">
+                    {list_videos}
+                </div>
+            </div>
+        </main>
+    </body> 
