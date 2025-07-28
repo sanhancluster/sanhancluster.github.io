@@ -31,7 +31,7 @@ def crop_center_square(img):
     bottom = top + min_side
     return img.crop((left, top, right, bottom))
 
-for filename in os.listdir(source_dir):
+for filename in sorted(os.listdir(source_dir)):
     if filename.lower().endswith(valid_images):
         source_path = os.path.join(source_dir, filename)
         name, ext = os.path.splitext(filename)
@@ -54,7 +54,7 @@ for filename in os.listdir(source_dir):
 html_content = html_content.replace("{list_images}", images_html)
 
 large_html = ""
-for filename in os.listdir(large_dir):
+for filename in sorted(os.listdir(large_dir)):
     if filename.lower().endswith(valid_zoomable):
         source_path = os.path.join(large_dir, filename)
         name, ext = os.path.splitext(filename)
@@ -67,7 +67,7 @@ for filename in os.listdir(large_dir):
 html_content = html_content.replace("{list_large_images}", large_html)
 
 videos_html = "<h2>Videos</h2>"
-for filename in os.listdir(source_dir):
+for filename in sorted(os.listdir(source_dir)):
     if filename.lower().endswith(valid_videos):
         source_path = os.path.join(source_dir, filename)
         name, ext = os.path.splitext(filename)
