@@ -41,7 +41,7 @@
                 <script>
                     let viewer = null;
                     
-                    // 썸네일 클릭 → 뷰어 열기
+                    // click event for thumbnails
                     document.querySelectorAll('.thumb-list img').forEach(img => {
                         img.addEventListener('click', () => {
                             const dziPath = img.getAttribute('data-dzi');
@@ -58,7 +58,12 @@
                                 id: "openseadragon-viewer",
                                 prefixUrl: "https://openseadragon.github.io/openseadragon/images/",
                                 tileSources: dziPath,
-                                showNavigationControl: true
+                                showNavigationControl: true,
+                                defaultZoomLevel: 1,
+                                maxZoomPixelRatio: 2,
+                                minZoomLevel: 0.5,
+                                springStiffness: 10.,
+                                animationTime: 0.5,
                             });
                         }
                     }
@@ -68,7 +73,7 @@
                         document.getElementById('osd-overlay').style.display = 'none';
                     }
                     
-                    // ESC 키로 닫기
+                    // close viewer on ESC key
                     document.addEventListener('keydown', e => {
                         if (e.key === 'Escape') closeViewer();
                     });
