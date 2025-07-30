@@ -26,8 +26,6 @@
         
         <a href="gallery/NH_dmstar_small.jpg"><img src="gallery/thumbnails/NH_dmstar_small_thumb.webp" alt="NH_dmstar_small" height="400px"></a>
         
-        <a href="gallery/comp_new_00606_v2.png"><img src="gallery/thumbnails/comp_new_00606_v2_thumb.webp" alt="comp_new_00606_v2" height="400px"></a>
-        
         <a href="gallery/composite_small.png"><img src="gallery/thumbnails/composite_small_thumb.webp" alt="composite_small" height="400px"></a>
         
         <a href="gallery/gas_face_40kpc_00623_4x6.png"><img src="gallery/thumbnails/gas_face_40kpc_00623_4x6_thumb.webp" alt="gas_face_40kpc_00623_4x6" height="400px"></a>
@@ -47,7 +45,11 @@
                 <h2>Zoomable Images</h2>
                 <div class="thumb-list">
                     
+        <img src="gallery_large/thumbnails/NH_all_thumb.webp" data-dzi="gallery_large/NH_all.dzi" alt="NH_all" height="400px">
+        
         <img src="gallery_large/thumbnails/comp_new_00607_a4_thumb.webp" data-dzi="gallery_large/comp_new_00607_a4.dzi" alt="comp_new_00607_a4" height="400px">
+        
+        <img src="gallery_large/thumbnails/composite_thumb.webp" data-dzi="gallery_large/composite.dzi" alt="composite" height="400px">
         
         <img src="gallery_large/thumbnails/gas_00607_thumb.webp" data-dzi="gallery_large/gas_00607.dzi" alt="gas_00607" height="400px">
         
@@ -65,7 +67,7 @@
                 <script>
                     let viewer = null;
                     
-                    // 썸네일 클릭 → 뷰어 열기
+                    // click event for thumbnails
                     document.querySelectorAll('.thumb-list img').forEach(img => {
                         img.addEventListener('click', () => {
                             const dziPath = img.getAttribute('data-dzi');
@@ -82,7 +84,12 @@
                                 id: "openseadragon-viewer",
                                 prefixUrl: "https://openseadragon.github.io/openseadragon/images/",
                                 tileSources: dziPath,
-                                showNavigationControl: true
+                                showNavigationControl: true,
+                                defaultZoomLevel: 1,
+                                maxZoomPixelRatio: 2,
+                                minZoomLevel: 0.5,
+                                springStiffness: 10.,
+                                animationTime: 0.5,
                             });
                         }
                     }
@@ -92,7 +99,7 @@
                         document.getElementById('osd-overlay').style.display = 'none';
                     }
                     
-                    // ESC 키로 닫기
+                    // close viewer on ESC key
                     document.addEventListener('keydown', e => {
                         if (e.key === 'Escape') closeViewer();
                     });

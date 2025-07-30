@@ -15,27 +15,22 @@ valid_zoomable = ('dzi')
 
 for filename in os.listdir(large_dir):
     if filename.lower().endswith(valid_images):
-        # check if zip file with same name exists
         name, ext = os.path.splitext(filename)
-        if name+".dzi.zip" in os.listdir(large_dir):
-            print(f"Skipping {filename} as zip file already exists.")
-            continue
-
         source_path = os.path.join(large_dir, filename)
         thumb_path = os.path.join(thumb_dir, f"{name}_thumb.webp")
         #thumb_path = os.path.relpath(thumb_path, start=os.path.dirname(large_dir))
 
-        # convert to thumbnail with vipsthumbnail with
-        try:
-            subprocess.run(["vips", "thumbnail", source_path, thumb_path, f"{thumb_size}x{thumb_size}"], check=True)
-        except subprocess.CalledProcessError as e:
-            print(f"Error processing {filename}: {e}")
-            continue
-        # zip the thumbnail
+        # check the size of the image
+        subprocess.run(["vips", "thumbnail", source_path, thumb_path, f"{thumb_size}x{thumb_size}", "--crop=centre"], check=True)
 
-        subprocess.run(["vips", "dzsave", source_path, os.path.join(large_dir, name), "--suffix=.avif[Q=80]", f"--tile-size={tile_size}", "--layout=dz", "--overlap=1"], check=True)
-        # zip the dzi files
-        subprocess.run(["zip", "-r", f"{name}.dzi.zip", f"{name}.dzi", f"{name}_files"], cwd=large_dir, check=True)
+        # check if zip file with same name exists
+        if name+".dzi.zip" in os.listdir(large_dir):
+            print(f"Skipping {filename} as zip file already exists.")
+        else:
+            # zip the thumbnail
+            subprocess.run(["vips", "dzsave", source_path, os.path.join(large_dir, name), "--suffix=.avif[Q=80]", f"--tile-size={tile_size}", "--layout=dz", "--overlap=1"], check=True)
+            # zip the dzi files
+            subprocess.run(["zip", "-r", f"{name}.dzi.zip", f"{name}.dzi", f"{name}_files"], cwd=large_dir, check=True)
         # remove the original files and directories
         if os.path.exists(os.path.join(large_dir, f"{name}.dzi")):
             os.remove(os.path.join(large_dir, f"{name}.dzi"))
