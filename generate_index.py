@@ -15,7 +15,7 @@ additional_bibcodes = [
 # Set your ADS API key
 ads.config.token = "la3I0TAYMC6FA7kPScFIqMloB8Y9ktidI6haOMZQ"
 
-with open("profile/index_template.html", "r", encoding="utf-8") as f:
+with open("templates/index_template.html", "r", encoding="utf-8") as f:
     HTML_TEMPLATE = f.read()
 
 def fetch_ads_papers(query):
