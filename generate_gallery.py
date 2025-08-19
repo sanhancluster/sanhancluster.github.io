@@ -14,12 +14,12 @@ valid_images = ('.png', '.jpg', '.webp', 'dzi', '.avif')
 valid_zoomable = ('dzi')
 valid_videos = ('.mp4', '.webm')
 
-with open("profile/gallery_template.html", "r", encoding="utf-8") as f:
+with open("templates/gallery_template.html", "r", encoding="utf-8") as f:
     HTML_TEMPLATE = f.read()
 html_content = HTML_TEMPLATE
 
 #num_papers = len(papers)
-images_html = "<h2>Images</h2>"
+images_html = ""
 Image.MAX_IMAGE_PIXELS = None
 
 def crop_center_square(img):
@@ -49,7 +49,7 @@ for filename in sorted(os.listdir(source_dir)):
         source_path = os.path.relpath(source_path, start=os.path.dirname(output_file))
         thumb_path = os.path.relpath(thumb_path, start=os.path.dirname(output_file))
         images_html += f"""
-        <a href="{source_path}"><img src="{thumb_path}" alt="{name}" height="{thumb_size}px"></a>
+        <a href="{source_path}"><img src="{thumb_path}" alt="{name}" height="{thumb_size}px" style="max-width: 90%;"></a>
         """
 html_content = html_content.replace("{list_images}", images_html)
 
@@ -62,18 +62,18 @@ for filename in sorted(os.listdir(large_dir)):
         source_path = os.path.relpath(source_path, start=os.path.dirname(output_file))
         thumb_path = os.path.relpath(thumb_path, start=os.path.dirname(output_file))
         large_html += f"""
-        <img src="{thumb_path}" data-dzi="{source_path}" alt="{name}" height="{thumb_size}px">
+        <img src="{thumb_path}" data-dzi="{source_path}" alt="{name}" height="{thumb_size}px" style="max-width: 90%;">
         """
 html_content = html_content.replace("{list_large_images}", large_html)
 
-videos_html = "<h2>Videos</h2>"
+videos_html = ""
 for filename in sorted(os.listdir(source_dir)):
     if filename.lower().endswith(valid_videos):
         source_path = os.path.join(source_dir, filename)
         name, ext = os.path.splitext(filename)
         source_path = os.path.relpath(source_path, start=os.path.dirname(output_file))
         videos_html += f"""
-        <video controls height="300">
+        <video controls height="{thumb_size}px" style="max-width: 90%;">
             <source src="{source_path}" type="video/{ext[1:]}">
             Your browser does not support the video tag.
         </video>
