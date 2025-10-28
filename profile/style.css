@@ -93,14 +93,14 @@ a {
 /* Section 1 Styles */
 .section-1 {
     position: sticky;
-    top: 20%;
-    transform: translateY(-20%);
+    top: 50%;
+    transform: translateY(-40%);
     z-index: 5;
     text-align: center;
     max-width: 360px;
     padding-left: 2.5rem;
     justify-self: right;
-    max-height: 5vh;
+    max-height: 80vh;
 }
 
 /* Disable sticky behavior on narrow screens */
@@ -109,6 +109,10 @@ a {
         position: static;
         top: auto;
         padding-top: 5rem;
+        transform: none;
+        max-height: none;
+        overflow: visible;
+
     }
 }
 
