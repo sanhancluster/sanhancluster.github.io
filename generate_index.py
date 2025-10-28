@@ -8,8 +8,8 @@ query = "orcid:0000-0001-9939-713X"
 my_name = 'Han, San'
 
 additional_bibcodes = [
-#    "2025arXiv250706301H",
-#    "2025arXiv250609152J",
+    "2025arXiv250706301H",
+    "2025arXiv250609152J",
 ]
 
 # Set your ADS API key
@@ -19,11 +19,18 @@ with open("templates/index_template.html", "r", encoding="utf-8") as f:
     HTML_TEMPLATE = f.read()
 
 def fetch_ads_papers(query):
-    papers = ads.SearchQuery(q=query, sort="date desc", rows=paper_limit, fl=['title', 'author', 'pubdate', 'pub', 'bibcode', 'volume', 'page', 'bibstem', 'doi', 'identifier'])
+    fl = ['title', 'author', 'pubdate', 'pub', 'bibcode', 'volume', 'page', 'bibstem', 'doi', 'identifier']
+    papers = ads.SearchQuery(q=query, sort="date desc", rows=paper_limit, fl=fl)
     papers = list(papers)
     # Add additional bibcodes if provided
     if additional_bibcodes:
-        additional_papers = [list(ads.SearchQuery(bibcode=bibcode, fl=['title', 'author', 'pubdate', 'pub', 'bibcode', 'volume', 'page', 'bibstem', 'doi', 'identifier']))[0] for bibcode in additional_bibcodes]
+        additional_papers = []
+        for bibcode in additional_bibcodes:
+            l = list(ads.SearchQuery(bibcode=bibcode, fl=fl))
+            if len(l) > 0:
+                additional_papers.append(l[0])
+            else:
+                print(f'{bibcode} not found, skipping')
         additional_papers.extend(papers)
         papers = additional_papers
     results = []
