@@ -92,11 +92,24 @@ a {
 
 /* Section 1 Styles */
 .section-1 {
-    padding-top: 25vh;
+    position: sticky;
+    top: 20%;
+    transform: translateY(-20%);
+    z-index: 5;
     text-align: center;
     max-width: 360px;
     padding-left: 2.5rem;
     justify-self: right;
+    max-height: 5vh;
+}
+
+/* Disable sticky behavior on narrow screens */
+@media (max-width: 1440px) {
+    .section-1 {
+        position: static;
+        top: auto;
+        padding-top: 5rem;
+    }
 }
 
 .section-1 h2 {
@@ -154,6 +167,7 @@ a:hover {
     -moz-animation: target-fade 1s;
     -o-animation: target-fade 1s;
     animation: target-fade 1s;
+    scroll-margin-top: 1rem;
 }
 
 footer {

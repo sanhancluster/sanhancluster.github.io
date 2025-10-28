@@ -20,8 +20,10 @@ for filename in os.listdir(large_dir):
         thumb_path = os.path.join(thumb_dir, f"{name}_thumb.webp")
         #thumb_path = os.path.relpath(thumb_path, start=os.path.dirname(large_dir))
 
-        # check the size of the image
-        subprocess.run(["vips", "thumbnail", source_path, thumb_path, f"{thumb_size}x{thumb_size}", "--crop=centre"], check=True)
+        if not os.path.exists(thumb_path):
+            subprocess.run(["vips", "thumbnail", source_path, thumb_path, f"{thumb_size}x{thumb_size}", "--crop=centre"], check=True)
+        else:
+            print(f"Skipping {filename} as thumbnail already exists.")
 
         # check if zip file with same name exists
         if name+".dzi.zip" in os.listdir(large_dir):
@@ -40,5 +42,5 @@ for filename in os.listdir(large_dir):
         print(f"Processed {source_path} -> {thumb_path}, {output_path}")
 
 subprocess.run(["zip", "-r", f"thumbnails.zip", 'thumbnails'], cwd=large_dir, check=True)
-if os.path.exists(thumb_dir):
-    shutil.rmtree(thumb_dir, ignore_errors=True)
+#if os.path.exists(thumb_dir):
+#    shutil.rmtree(thumb_dir, ignore_errors=True)

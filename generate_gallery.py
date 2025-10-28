@@ -48,8 +48,9 @@ for filename in sorted(os.listdir(source_dir)):
             continue
         source_path = os.path.relpath(source_path, start=os.path.dirname(output_file))
         thumb_path = os.path.relpath(thumb_path, start=os.path.dirname(output_file))
+        description = "No description available."
         images_html += f"""
-        <a href="{source_path}"><img src="{thumb_path}" alt="{name}" height="{thumb_size}px" style="max-width: 90%;"></a>
+        <a href="{source_path}"><img src="{thumb_path}" alt="{name}" height="{thumb_size}px" style="max-width: 90%;" data-name="{name}" data-description="{description}"></a>
         """
 html_content = html_content.replace("{list_images}", images_html)
 
