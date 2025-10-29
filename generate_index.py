@@ -9,7 +9,6 @@ my_name = 'Han, San'
 
 additional_bibcodes = [
     "2025arXiv250706301H",
-    "2025arXiv250609152J",
 ]
 
 # Set your ADS API key
@@ -40,8 +39,8 @@ def fetch_ads_papers(query):
         arxiv_id_clean = arxiv_id.split(":")[-1] if arxiv_id else None
         for i, author in enumerate(paper.author):
             if author == my_name:
-                author_mod[i] = "<b>%s</b>" % author_mod[i]
-        detail_string = f"<em>{paper.pubdate[:4]}</em>, <em>{paper.bibstem[0]}</em>, {paper.volume}, {paper.page[0]}" if paper.volume else f"<em>{paper.pubdate[:4]}</em>, <em>{paper.bibstem[0]}</em>"
+                author_mod[i] = "<strong>%s</strong>" % author_mod[i]
+        detail_string = f"<em>{paper.pubdate[:4]}</em>, <cite>{paper.pub}</cite>, {paper.volume}, {paper.page[0]}" if paper.volume else f"<em>{paper.pubdate[:4]}</em>, <cite>{paper.pub}</cite>"
         results.append({
             "Title": paper.title[0] if paper.title else "No Title",
             "FirstAuthor": paper.author[0] if paper.author else "Unknown",
@@ -70,7 +69,7 @@ def write_html(query, output_file="papers.html"):
     for paper in first_papers:
         papers_html += f"""
         <p>
-            <b>{paper['Title']}</b><br>
+            <strong>{paper['Title']}</strong><br>
             {paper['Authors']}, {paper['Details']} {paper['ads']} {paper['doi']} {paper['arxiv']} {paper['html']} 
         </p>
         """
