@@ -76,7 +76,10 @@
                     document.querySelectorAll('.thumb-list img').forEach(img => {
                         img.addEventListener('click', () => {
                             const dziPath = img.getAttribute('data-dzi');
+                            const description = img.dataset.description;
+                            const name = img.dataset.name;
                             openViewer(dziPath);
+                            document.getElementById("osd-description").innerText = `${name}: ${description}`;
                         });
                     });
                     
